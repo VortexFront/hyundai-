@@ -1,0 +1,220 @@
+.contact {
+  padding: 6rem 0;
+  background-color: var(--color-white);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  margin-bottom: 1rem;
+  color: var(--color-gray-900);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--color-gray-600);
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.dealershipsGrid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.dealerCard {
+  background: linear-gradient(to bottom right, var(--color-gray-50), var(--color-blue-50));
+  padding: 2rem;
+  border-radius: 1rem;
+  transition: box-shadow 0.3s;
+}
+
+.dealerCard:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.dealerHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.dealerIconWrapper {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--color-blue-900);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dealerIcon {
+  color: white;
+}
+
+.dealerCity {
+  color: var(--color-gray-900);
+}
+
+.dealerAddress {
+  color: var(--color-gray-600);
+  margin-bottom: 0.5rem;
+}
+
+.dealerMetro {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.dealerButton {
+  width: 100%;
+  border: 2px solid var(--color-blue-900);
+  color: var(--color-blue-900);
+  background: transparent;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s;
+}
+
+.dealerButton:hover {
+  background-color: var(--color-blue-900);
+  color: white;
+}
+
+.additionalGrid {
+  display: grid;
+  gap: 2rem;
+}
+
+.testDriveCard {
+  background-color: var(--color-blue-900);
+  padding: 2rem;
+  border-radius: 1rem;
+  color: white;
+}
+
+.testDriveHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.testDriveIconWrapper {
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testDriveIcon {
+  color: white;
+}
+
+.testDriveTitle {
+  color: white;
+}
+
+.testDriveDescription {
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.testDriveButton {
+  background-color: white;
+  color: var(--color-blue-900);
+  padding: 0.75rem 2rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s;
+}
+
+.testDriveButton:hover {
+  background-color: #f3f4f6;
+  transform: scale(1.05);
+}
+
+.offersCard {
+  background: linear-gradient(to bottom right, var(--color-gray-50), var(--color-blue-50));
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.offersHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.offersIconWrapper {
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--color-blue-900);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.offersIcon {
+  color: white;
+}
+
+.offersTitle {
+  color: var(--color-gray-900);
+}
+
+.offersDescription {
+  color: var(--color-gray-600);
+  margin-bottom: 1.5rem;
+}
+
+.offersButton {
+  border: 2px solid var(--color-blue-900);
+  color: var(--color-blue-900);
+  background: transparent;
+  padding: 0.75rem 2rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s;
+}
+
+.offersButton:hover {
+  background-color: var(--color-blue-900);
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .additionalGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .dealershipsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

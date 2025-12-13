@@ -1,0 +1,222 @@
+.assistants {
+  padding: 6rem 0;
+  background: linear-gradient(to bottom right, var(--color-blue-50), var(--color-gray-50));
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  margin-bottom: 1rem;
+  color: var(--color-gray-900);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--color-gray-600);
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  gap: 3rem;
+}
+
+.formCard {
+  background-color: var(--color-white);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.formHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.formIconWrapper {
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--color-blue-900);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formIcon {
+  color: white;
+}
+
+.formTitle {
+  color: var(--color-gray-900);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.875rem;
+  color: var(--color-gray-700);
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-blue-900);
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+.textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  resize: none;
+  transition: all 0.3s;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-blue-900);
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+.submitButton {
+  width: 100%;
+  background-color: var(--color-blue-900);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.submitButton:hover {
+  background-color: var(--color-blue-800);
+  transform: scale(1.05);
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.infoCard {
+  background-color: var(--color-white);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.infoCard:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.infoContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.infoIconWrapper {
+  width: 3rem;
+  height: 3rem;
+  background-color: #dbeafe;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.infoIcon {
+  color: var(--color-blue-900);
+}
+
+.infoTitle {
+  color: var(--color-gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.infoText {
+  color: var(--color-gray-600);
+  margin: 0;
+}
+
+.aiCard {
+  background: linear-gradient(to bottom right, var(--color-blue-900), var(--color-blue-700));
+  padding: 2rem;
+  border-radius: 1rem;
+  color: white;
+}
+
+.aiTitle {
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.aiDescription {
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.aiButton {
+  background-color: white;
+  color: var(--color-blue-900);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s;
+}
+
+.aiButton:hover {
+  background-color: #f3f4f6;
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

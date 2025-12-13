@@ -1,0 +1,141 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(to bottom right, var(--color-gray-50), var(--color-blue-50));
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7), transparent);
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5rem 1rem 0;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+.textContent {
+  max-width: 600px;
+}
+
+.badge {
+  color: var(--color-blue-900);
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.title {
+  margin-bottom: 1.5rem;
+  color: var(--color-gray-900);
+}
+
+.description {
+  font-size: 1.25rem;
+  color: var(--color-gray-600);
+  margin-bottom: 2rem;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.primaryButton {
+  background-color: var(--color-blue-900);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  transition: all 0.3s;
+}
+
+.primaryButton:hover {
+  background-color: var(--color-blue-800);
+  transform: scale(1.05);
+}
+
+.secondaryButton {
+  border: 2px solid var(--color-blue-900);
+  color: var(--color-blue-900);
+  background: transparent;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  transition: all 0.3s;
+}
+
+.secondaryButton:hover {
+  background-color: var(--color-blue-900);
+  color: white;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.statNumber {
+  font-size: 1.875rem;
+  color: var(--color-blue-900);
+  margin-bottom: 0.25rem;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: var(--color-gray-600);
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scrollIcon {
+  color: var(--color-blue-900);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .content {
+    padding: 5rem 1.5rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content {
+    padding: 5rem 2rem 0;
+  }
+}
