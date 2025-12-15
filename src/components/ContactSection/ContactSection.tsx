@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, Calendar, Award } from 'lucide-react';
+import { MapPin, Calendar, } from 'lucide-react';
 import { useInView } from 'motion/react';
 import { useRef, useState } from 'react';
 import styles from './ContactSection.module.css';
