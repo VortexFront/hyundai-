@@ -1,7 +1,7 @@
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { MapPin, Calendar, Award } from 'lucide-react';
 import { useInView } from 'motion/react';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import styles from './ContactSection.module.css';
 
 interface Dealership {
@@ -13,6 +13,13 @@ interface Dealership {
 export function ContactSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    date: '',
+  });
 
   const dealerships: Dealership[] = [
     {
@@ -31,6 +38,23 @@ export function ContactSection() {
       metro: 'Кремлёвская',
     },
   ];
+
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert(`Запись на тест-драйв:
+      Имя: ${formData.name}
+      Телефон: ${formData.phone}
+      Дата: ${formData.date}`);
+    setIsModalOpen(false); // Закрытие модального окна
+  };
 
   return (
     <section id="контакты" ref={ref} className={styles.contact}>
@@ -64,48 +88,83 @@ export function ContactSection() {
               </div>
               <p className={styles.dealerAddress}>{dealer.address}</p>
               <p className={styles.dealerMetro}>м. {dealer.metro}</p>
-              <button className={styles.dealerButton}>
+              <button
+                className={styles.dealerButton}
+                onClick={() => setIsModalOpen(true)} // Открытие модального окна
+              >
                 Записаться на тест-драйв
               </button>
             </motion.div>
           ))}
         </div>
 
+        {/* Карточка с формой для записи */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className={styles.additionalGrid}
+          className={styles.testDriveCard}
         >
-          <div className={styles.testDriveCard}>
-            <div className={styles.testDriveHeader}>
-              <div className={styles.testDriveIconWrapper}>
-                <Calendar className={styles.testDriveIcon} size={24} />
-              </div>
-              <h3 className={styles.testDriveTitle}>Запишитесь на тест-драйв</h3>
+          <div className={styles.testDriveHeader}>
+            <div className={styles.testDriveIconWrapper}>
+              <Calendar className={styles.testDriveIcon} size={24} />
             </div>
-            <p className={styles.testDriveDescription}>
-              Протестируйте Hyundai Mufasa на дороге и почувствуйте все его возможности. Запись онлайн или по телефону.
-            </p>
-            <button className={styles.testDriveButton}>
-              Записаться сейчас
-            </button>
+            <h3 className={styles.testDriveTitle}>Запишитесь на тест-драйв</h3>
           </div>
+          <p className={styles.testDriveDescription}>
+            Протестируйте Hyundai Mufasa на дороге и почувствуйте все его возможности. Запись онлайн или по телефону.
+          </p>
 
-          <div className={styles.offersCard}>
-            <div className={styles.offersHeader}>
-              <div className={styles.offersIconWrapper}>
-                <Award className={styles.offersIcon} size={24} />
+          {/* Форма записи */}
+          {isModalOpen && (
+            <form onSubmit={handleFormSubmit} className={styles.testDriveForm}>
+              <div className={styles.inputGroup}>
+                <label htmlFor="name">Имя:</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleFormChange}
+                  required
+                />
               </div>
-              <h3 className={styles.offersTitle}>Специальные предложения</h3>
-            </div>
-            <p className={styles.offersDescription}>
-              Выгодные условия покупки, программы Trade-in и кредитование от 0.01%. Узнайте о текущих акциях у наших менеджеров.
-            </p>
-            <button className={styles.offersButton}>
-              Узнать подробнее
-            </button>
-          </div>
+              <div className={styles.inputGroup}>
+                <label htmlFor="phone">Телефон:</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleFormChange}
+                  required
+                />
+              </div>
+              <div className={styles.inputGroup}>
+                <label htmlFor="date">Дата тест-драйва:</label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleFormChange}
+                  required
+                />
+              </div>
+              <div className={styles.formActions}>
+                <button type="submit" className={styles.testDriveButton}>
+                  Отправить
+                </button>
+                <button
+                  type="button"
+                  className={styles.closeButton}
+                  onClick={() => setIsModalOpen(false)} // Закрытие модального окна
+                >
+                  Закрыть
+                </button>
+              </div>
+            </form>
+          )}
         </motion.div>
       </div>
     </section>

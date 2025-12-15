@@ -45,14 +45,15 @@ export function Header() {
                 {item}
               </motion.a>
             ))}
-            <motion.button
+            <motion.a
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4 }}
               className={styles.ctaButton}
+              href='#контакты'
             >
               Тест-драйв
-            </motion.button>
+            </motion.a>
           </nav>
 
           <button
