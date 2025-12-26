@@ -223,111 +223,104 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  max-width: 1100px; /* Ограничение ширины формы для центрации */
-  margin: 0 auto; /* Центрирование формы на странице */
-  background-color: var(--color-blue-50); /* Светлый синий фон для формы */
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Легкая тень для формы */
-  transition: box-shadow 0.3s ease-in-out;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  background-color: var(--color-white);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* При наведении на форму */
 .testDriveForm:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Увеличение тени при наведении */
+  transform: translateY(-2px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
 }
 
-/* Группы для инпутов */
 .inputGroup {
   display: flex;
   flex-direction: column;
-  border-radius: 3px;
-  margin-bottom: 0.5rem;
-  color: black;
-  
+  gap: 0.5rem;
 }
 
-/* Выбираем второй дочерний элемент */
-.parent .inputGroup:nth-child(2) {
-  color: red;
+.formLabel {
+  font-size: 0.95rem;
+  color: var(--color-gray-900);
+  font-weight: 600;
+  margin-left: 0.25rem;
 }
 
-
-
-
-label {
+.formInput {
+  padding: 1rem 1.25rem;
+  border-radius: 1.5rem !important;
+  border: 2px solid #94a3b8; /* Более темный (Slate 400) цвет для четкости */
+  background-color: #f8fafc;
+  color: var(--color-gray-900);
   font-size: 1rem;
-  color: var(--color-blue-900); /* Темно-синий для текста */
-  margin-bottom: 0.25rem;
-  font-weight: 600; /* Жирный шрифт для меток */
+  font-weight: 500;
+  transition: all 0.2s ease;
+  width: 100%;
 }
 
-/* Поля ввода */
-input {
-  padding: 1rem;
-  border-radius: 0.75rem;
-  border: 2px solid var(--color-blue-300); /* Светлый синий бордер */
-  background-color: white; /* Белый фон для полей ввода */
-  color: var(--color-blue-900); /* Темно-синий для текста */
-  font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+.formInput:focus {
   outline: none;
+  border-color: var(--color-blue-900);
+  background-color: var(--color-white);
+  box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.15);
 }
 
-input:focus {
-  border-color: var(--color-blue-600); /* Синий бордер при фокусе */
-  box-shadow: 0 0 5px var(--color-blue-600); /* Легкая тень при фокусе */
+.formActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: stretch;
 }
 
-/* Кнопки */
 .testDriveButton,
 .closeButton {
-  padding: 1rem 2rem;
-  border-radius: 1rem;
+  padding: 1rem;
+  border-radius: 2rem;
   font-size: 1rem;
-  text-transform: uppercase;
+  font-weight: 600;
+  text-transform: none;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  width: 100%;
-  max-width: 200px; /* Ограничение ширины кнопок */
-  margin: 0 auto; /* Центрирование кнопок */
+  transition: all 0.2s ease;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  max-width: none;
 }
 
-/* Кнопка отправки формы */
 .testDriveButton {
   background-color: var(--color-blue-900);
   color: white;
-  border: none;
+  border: 2px solid var(--color-blue-900);
 }
 
 .testDriveButton:hover {
   background-color: var(--color-blue-800);
-  transform: scale(1.05);
+  border-color: var(--color-blue-800);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
 }
 
-/* Кнопка закрытия */
 .closeButton {
   background-color: transparent;
-  color: var(--color-blue-900);
-  border: 2px solid var(--color-blue-900); /* Синий бордер */
-  margin-left: 38rem; /* Отступ слева для выравнивания */
+  color: var(--color-blue-900); /* Синий текст */
+  border: 2px solid var(--color-blue-900); /* Синий бордер, чтобы было видно */
 }
 
 .closeButton:hover {
-  background-color: var(--color-blue-100); /* Светлый синий фон при наведении */
-  transform: scale(1.05);
+  background-color: var(--color-blue-50); /* Светло-синий фон при наведении */
+  transform: translateY(-1px);
 }
 
-/* Плашка ошибки */
-.errorMessage {
-  color: var(--color-red-500); /* Красный цвет для ошибок */
-  font-size: 0.875rem;
-  margin-top: 0.5rem;
-}
-
-/* Медиа запросы для адаптивности */
 @media (min-width: 768px) {
   .testDriveForm {
-    padding: 2.5rem;
+    padding: 3rem;
   }
 }

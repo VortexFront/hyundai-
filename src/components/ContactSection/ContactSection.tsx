@@ -119,35 +119,38 @@ export function ContactSection() {
           {isModalOpen && (
             <form onSubmit={handleFormSubmit} className={styles.testDriveForm}>
               <div className={styles.inputGroup}>
-                <label htmlFor="name">Имя:</label>
+                <label htmlFor="name" className={styles.formLabel}>Имя:</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   value={formData.name}
                   onChange={handleFormChange}
+                  className={styles.formInput}
                   required
                 />
               </div>
               <div className={styles.inputGroup}>
-                <label htmlFor="phone">Телефон:</label>
+                <label htmlFor="phone" className={styles.formLabel}>Телефон:</label>
                 <input
                   type="tel"
                   id="phone"
                   name="phone"
                   value={formData.phone}
                   onChange={handleFormChange}
+                  className={styles.formInput}
                   required
                 />
               </div>
               <div className={styles.inputGroup}>
-                <label htmlFor="date">Дата тест-драйва:</label>
+                <label htmlFor="date" className={styles.formLabel}>Дата тест-драйва:</label>
                 <input
                   type="date"
                   id="date"
                   name="date"
                   value={formData.date}
                   onChange={handleFormChange}
+                  className={styles.formInput}
                   required
                 />
               </div>

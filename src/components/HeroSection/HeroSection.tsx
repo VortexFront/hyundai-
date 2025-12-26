@@ -14,7 +14,7 @@ export function HeroSection() {
         className={styles.background}
       >
         <img
-          src="https://images.unsplash.com/photo-1659107647642-8800cfa0fb84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoeXVuZGFpJTIwc3V2JTIwY2FyfGVufDF8fHx8MTc2NTQzMjE2OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          src="https://motor.ru/imgs/2023/04/14/13/5873057/3e873d51effb6d321e824e95d220e2e3d8cf3b72.jpg"
           alt="Hyundai Mufasa"
           className={styles.backgroundImage}
         />
@@ -42,8 +42,18 @@ export function HeroSection() {
               transition={{ delay: 0.6, duration: 0.8 }}
               className={styles.buttons}
             >
-              <button className={styles.primaryButton}>Забронировать</button>
-              <button className={styles.secondaryButton}>Узнать больше</button>
+              <button 
+                className={styles.primaryButton}
+                onClick={() => document.getElementById('контакты')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Забронировать
+              </button>
+              <button 
+                className={styles.secondaryButton}
+                onClick={() => document.getElementById('характеристики')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Узнать больше
+              </button>
             </motion.div>
 
             <motion.div

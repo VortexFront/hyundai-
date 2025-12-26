@@ -45,16 +45,16 @@ export function Footer() {
           <div className={styles.section}>
             <h4>Социальные сети</h4>
             <div className={styles.socialLinks}>
-              <a href="#" className={styles.socialIcon}>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
                 <Facebook size={20} />
               </a>
-              <a href="#" className={styles.socialIcon}>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
                 <Instagram size={20} />
               </a>
-              <a href="#" className={styles.socialIcon}>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
                 <Youtube size={20} />
               </a>
-              <a href="#" className={styles.socialIcon}>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
                 <Twitter size={20} />
               </a>
             </div>
