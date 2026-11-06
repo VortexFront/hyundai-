@@ -32,7 +32,7 @@ export function Header() {
             </div>
           </motion.div>
 
-          <nav className={styles.nav}>
+          <nav className={styles.nav} aria-label="Основная навигация">
             {menuItems.map((item, index) => (
               <motion.a
                 key={item}
@@ -52,12 +52,17 @@ export function Header() {
               className={styles.ctaButton}
               href='#контакты'
             >
-              Тест-драйв
+              Демо тест-драйва
             </motion.a>
           </nav>
 
           <button
+            type="button"
+            aria-label={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
             className={styles.mobileMenuButton}
+            onKeyDown={(event) => { if (event.key === 'Escape') setIsMenuOpen(false); }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -65,7 +70,7 @@ export function Header() {
         </div>
 
         {isMenuOpen && (
-          <motion.nav
+          <motion.nav id="mobile-navigation" aria-label="Мобильная навигация" onKeyDown={(event) => { if (event.key === 'Escape') setIsMenuOpen(false); }}
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -81,9 +86,7 @@ export function Header() {
                 {item}
               </a>
             ))}
-            <button className={styles.mobileCtaButton}>
-              Тест-драйв
-            </button>
+            <a href="#контакты" className={styles.mobileCtaButton} onClick={() => setIsMenuOpen(false)}>Демо тест-драйва</a>
           </motion.nav>
         )}
       </div>

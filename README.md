@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# Mufasa — концепт автомобильного лендинга
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Неофициальный русскоязычный сайт на React и TypeScript: адаптивный первый экран, навигация по разделам, анимации и локальные демонстрации ассистента и тест-драйва. Проект показывает разработку интерфейса; это не сайт производителя или действующего дилера.
 
-Currently, two official plugins are available:
+[Публичное демо](https://vortexfront.github.io/hyundai-/) · [Изображения и лицензии](ATTRIBUTIONS.md)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> Изменения из ветки `fix/public-portfolio-polish` доступны в исходниках PR. GitHub Pages публикует отдельную ветку `gh-pages`; обновлённый интерфейс появится после одобрения PR и отдельного развёртывания владельцем.
 
-## React Compiler
+![Десктоп: первый экран и разделы концепта](docs/screenshots/desktop.png)
+![Мобильная версия](docs/screenshots/mobile.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Реализовано
 
-## Expanding the ESLint configuration
+- Адаптивная сетка, меню для мобильного экрана, рабочие якоря, Escape для меню и видимый фокус клавиатуры.
+- Анимации появления и переходов на Motion; учтено предпочтение уменьшенного движения в CSS.
+- Демо ассистента: подготовленный вопрос и локальный ответ без отправки сообщения.
+- Демо тест-драйва: выбор вымышленного салона и просмотр синтетической карточки; состояние проверки сбрасывается при новом выборе.
+- Фото Hyundai Mufasa хранится локально, имеет подтверждённую лицензию CC0 и атрибуцию. Стандартные значки Vite/React заменены собственным favicon.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Стек и запуск
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+React 19, TypeScript 5, Vite 7, CSS Modules, Motion, Lucide React. Для разработки рекомендуется Node.js 24 LTS и npm.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm ci
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Разработка: `http://localhost:5173/hyundai-/`. Production-предпросмотр сохраняет путь GitHub Pages `/hyundai-/`:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm run build
+npm run preview
 ```
+
+## Проверки
+
+```sh
+npm run lint
+npm run typecheck
+npm run build
+npx playwright install chromium --only-shell
+npm run test:e2e
+npm audit
+```
+
+Два браузерных сценария для 1440 и 390 px проверяют загрузку фото, отсутствие горизонтального переполнения, клавиатурную навигацию и мобильное меню, оба демо-сценария, сброс состояния, отсутствие редактируемых контактных полей, запросов к сторонним адресам, POST-запросов, ложных подтверждений и контактов в консоли. CI выполняет проверки без прав на публикацию и без развёртывания Pages. Для локальной проверки установленным Chromium можно задать `PW_CHROMIUM_EXECUTABLE`.
+
+Выполнено 2026-11-06: установка, lint, typecheck, build и оба сценария Chrome — успешно. Скриншоты сделаны из production-сборки и просмотрены визуально. Ручной тест через интерфейс браузера **не выполнен**: доступ к локальному браузеру отключён в настройках Work. Автоматические проверки не объявляются ручными.
+
+Обновлён lockfile в пределах совместимых версий. Для устранения advisory транзитивного minimatch добавлен ограниченный override `@typescript-eslint/typescript-estree → minimatch 11.0.4`; после обновления проверены lint, сборка и тесты. `npm audit` на дату проверки — 0 известных уязвимостей; это не гарантия отсутствия новых advisory.
+
+## Ограничения
+
+Нет backend, AI API, оператора чата, бронирования, продажи автомобилей или отправки почты. Все поля демонстраций доступны только для чтения; настоящие контакты вводить не нужно. Состояние хранится только в памяти страницы. Салоны вымышлены и не предназначены для посещения. Технические характеристики и комплектации автомобиля не подтверждались: прежние числа 280 л.с., 6.8 с и AWD удалены, карточки описывают интерфейс. Сайт не является источником сведений для покупки автомобиля. Товарные знаки принадлежат их правообладателям.
+
+## Авторство
+
+Проект целиком создан **Максимом Асатуровым**. Автор отвечает за реализацию, технические решения, отладку и проверку результата; в работе использовались AI-assisted инструменты. Сторонние библиотеки и фотография имеют собственных авторов и лицензии, указанные отдельно. Демонстрационные автомобильные и сервисные сценарии не являются реальными бизнес-показателями автора.
