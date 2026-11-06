@@ -1,76 +1,16 @@
-import { Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
 import styles from './Footer.module.css';
-
-
 export function Footer() {
-  return (
-    <footer className={styles.footer}>
-      <div className={styles.container}>
-        <div className={styles.grid}>
-          <div className={styles.brandSection}>
-            <div className={styles.logo}>
-              <div className={styles.logoIcon}>
-                <span>H</span>
-              </div>
-              <div className={styles.logoText}>
-                <div className={styles.logoBrand}>HYUNDAI</div>
-                <div className={styles.logoModel}>MUFASA</div>
-              </div>
-            </div>
-            <p className={styles.tagline}>
-              Новый уровень комфорта и технологий
-            </p>
-          </div>
-
-          <div className={styles.section}>
-            <h4>Компания</h4>
-            <ul className={styles.linkList}>
-              <li><a href="#">О нас</a></li>
-              <li><a href="#">Новости</a></li>
-              <li><a href="#">Карьера</a></li>
-              <li><a href="#">Пресс-центр</a></li>
-            </ul>
-          </div>
-
-          <div className={styles.section}>
-            <h4>Поддержка</h4>
-            <ul className={styles.linkList}>
-              <li><a href="#">Сервис</a></li>
-              <li><a href="#">Гарантия</a></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Контакты</a></li>
-            </ul>
-          </div>
-
-          <div className={styles.section}>
-            <h4>Социальные сети</h4>
-            <div className={styles.socialLinks}>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-                <Facebook size={20} />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-                <Instagram size={20} />
-              </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-                <Youtube size={20} />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-                <Twitter size={20} />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.bottom}>
-          <p className={styles.copyright}>
-            © 2025 Hyundai Mufasa. Все права защищены.
-          </p>
-          <div className={styles.legalLinks}>
-            <a href="#">Политика конфиденциальности</a>
-            <a href="#">Условия использования</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
+  return <footer className={styles.footer} id="о-проекте"><div className={styles.container}>
+    <div className={styles.grid}>
+      <div className={styles.brandSection}><h2 className={styles.logoBrand}>MUFASA · UI CONCEPT</h2>
+        <p className={styles.tagline}>Портфолио Максима Асатурова. Неофициальный учебный сайт, не дилер Hyundai.</p></div>
+      <div className={styles.section}><h3>Разделы</h3><ul className={styles.linkList}>
+        <li><a href="#обзор">Обзор</a></li><li><a href="#характеристики">Интерфейс</a></li></ul></div>
+      <div className={styles.section}><h3>Демонстрация</h3><ul className={styles.linkList}>
+        <li><a href="#ассистенты">Демо ассистента</a></li><li><a href="#контакты">Демо салонов</a></li></ul></div>
+      <div className={styles.section}><h3>Исходный код</h3><a href="https://github.com/VortexFront/hyundai-">GitHub проекта</a></div>
+    </div>
+    <div className={styles.bottom}><p className={styles.copyright}>Автор разработки — Максим Асатуров. Использованы AI-assisted инструменты.</p>
+      <p>Фото: <a href="https://commons.wikimedia.org/wiki/File:Hyundai_Mufasa_005.jpg">KitsuneDP / Wikimedia Commons</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>. Марка принадлежит её правообладателю.</p></div>
+  </div></footer>;
 }

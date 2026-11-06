@@ -14,7 +14,7 @@ export function HeroSection() {
         className={styles.background}
       >
         <img
-          src="https://motor.ru/imgs/2023/04/14/13/5873057/3e873d51effb6d321e824e95d220e2e3d8cf3b72.jpg"
+          src={`${import.meta.env.BASE_URL}images/hyundai-mufasa-kitsunedp.jpg`}
           alt="Hyundai Mufasa"
           className={styles.backgroundImage}
         />
@@ -29,10 +29,10 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              <div className={styles.badge}>НОВЫЙ 2025</div>
+              <div className={styles.badge}>ПОРТФОЛИО · КОНЦЕПТ ЛЕНДИНГА</div>
               <h1 className={styles.title}>Hyundai Mufasa</h1>
               <p className={styles.description}>
-                Мощь, элегантность и технологии будущего в одном автомобиле. Откройте для себя новый уровень комфорта и производительности.
+                Демонстрация интерфейса автомобильного сайта. Неофициальный учебный концепт: без продажи автомобилей, реальной записи и подтверждённых технических характеристик.
               </p>
             </motion.div>
 
@@ -42,13 +42,13 @@ export function HeroSection() {
               transition={{ delay: 0.6, duration: 0.8 }}
               className={styles.buttons}
             >
-              <button 
+              <button
                 className={styles.primaryButton}
                 onClick={() => document.getElementById('контакты')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Забронировать
+                Демо тест-драйва
               </button>
-              <button 
+              <button
                 className={styles.secondaryButton}
                 onClick={() => document.getElementById('характеристики')?.scrollIntoView({ behavior: 'smooth' })}
               >
@@ -63,16 +63,16 @@ export function HeroSection() {
               className={styles.stats}
             >
               <div>
-                <div className={styles.statNumber}>280</div>
-                <div className={styles.statLabel}>л.с.</div>
+                <div className={styles.statNumber}>React</div>
+                <div className={styles.statLabel}>компоненты</div>
               </div>
               <div>
-                <div className={styles.statNumber}>6.8с</div>
-                <div className={styles.statLabel}>0-100 км/ч</div>
+                <div className={styles.statNumber}>TypeScript</div>
+                <div className={styles.statLabel}>типизация</div>
               </div>
               <div>
-                <div className={styles.statNumber}>AWD</div>
-                <div className={styles.statLabel}>Полный привод</div>
+                <div className={styles.statNumber}>Motion</div>
+                <div className={styles.statLabel}>анимации</div>
               </div>
             </motion.div>
           </div>

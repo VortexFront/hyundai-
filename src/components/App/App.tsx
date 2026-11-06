@@ -12,10 +12,12 @@ export default function App() {
   return (
     <div className={styles.app}>
       <Header />
+      <main>
       <HeroSection />
       <FeaturesSection />
       <AssistantsSection />
       <ContactSection />
+      </main>
       <Footer />
     </div>
   );
